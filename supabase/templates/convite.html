@@ -1,0 +1,25 @@
+<!--
+  Modelo "Invite user" do Supabase Auth (Authentication → Emails → Templates).
+  Assunto: Seu acesso ao painel da Hope
+
+  ⚠️ O link NÃO pode ser o {{ .ConfirmationURL }} padrão: ele usa o fluxo implícito,
+  que o cliente PKCE recusa. Ver docs/seguranca.md §7.1 e §16 ("Aceitar o convite").
+-->
+<div style="font-family: Arial, Helvetica, sans-serif; max-width: 480px; margin: 0 auto; color: #333333;">
+  <h2 style="color: #24A8B2; margin-bottom: 8px;">Você foi convidado para o painel da Hope</h2>
+  <p>Alguém da equipe criou um acesso para você no painel de expedição.</p>
+  <p>Clique no botão abaixo para criar sua senha e entrar:</p>
+  <p style="margin: 24px 0;">
+    <a href="{{ .SiteURL }}/entrar/convite?token_hash={{ .TokenHash }}&type=invite"
+       style="background: #24A8B2; color: #ffffff; padding: 12px 20px; border-radius: 6px; text-decoration: none; display: inline-block;">
+      Aceitar convite
+    </a>
+  </p>
+  <p style="font-size: 13px; color: #666666;">
+    O link vale por tempo limitado e só pode ser usado uma vez. Se ele expirar, peça para quem te
+    convidou reenviar o convite.
+  </p>
+  <p style="font-size: 13px; color: #666666;">
+    Se você não esperava este e-mail, pode ignorá-lo.
+  </p>
+</div>

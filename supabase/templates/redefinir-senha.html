@@ -1,0 +1,24 @@
+<!--
+  Modelo "Reset password" do Supabase Auth (Authentication → Emails → Templates).
+  Assunto: Redefinição de senha do painel da Hope
+
+  Aqui o {{ .ConfirmationURL }} padrão funciona: o pedido nasce no navegador (PKCE) com
+  redirectTo para /entrar/redefinir, e o código só vale naquele navegador (§7.3).
+-->
+<div style="font-family: Arial, Helvetica, sans-serif; max-width: 480px; margin: 0 auto; color: #333333;">
+  <h2 style="color: #24A8B2; margin-bottom: 8px;">Redefinição de senha</h2>
+  <p>Recebemos um pedido para redefinir a senha do seu acesso ao painel da Hope.</p>
+  <p style="margin: 24px 0;">
+    <a href="{{ .ConfirmationURL }}"
+       style="background: #24A8B2; color: #ffffff; padding: 12px 20px; border-radius: 6px; text-decoration: none; display: inline-block;">
+      Criar nova senha
+    </a>
+  </p>
+  <p style="font-size: 13px; color: #666666;">
+    Abra o link no mesmo navegador em que você pediu a redefinição. Ele vale por tempo limitado e só
+    pode ser usado uma vez.
+  </p>
+  <p style="font-size: 13px; color: #666666;">
+    Se não foi você que pediu, ignore este e-mail: sua senha continua a mesma.
+  </p>
+</div>

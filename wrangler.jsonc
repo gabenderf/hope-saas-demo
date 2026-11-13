@@ -1,0 +1,17 @@
+// Hospedagem do painel no Cloudflare Workers (assets estáticos). Ver docs/seguranca.md §10.
+// As variáveis VITE_* NÃO ficam aqui: são de build, cadastradas no painel da Cloudflare em
+// Settings → Build → Variables and secrets. Este arquivo vai para o git; nada secreto nele.
+{
+  "name": "hope-saas",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    // Rota desconhecida devolve o index.html: o roteamento é do React (/entrar/convite etc.).
+    "not_found_handling": "single-page-application"
+  },
+  // Só o domínio próprio serve o painel. O *.workers.dev e as URLs de prévia por versão
+  // ficariam fora do Turnstile e da Site URL do Supabase, e seriam um segundo endereço público.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "painel.example.com", "custom_domain": true }]
+}

@@ -1,0 +1,146 @@
+/* ====================================================================
+   HOPE UI · CORES
+   Copiado das seções de cor de novo-visual/hope-tokens.css, que segue
+   sendo a referência do ecossistema (a extensão e o coletor usam CSS puro).
+   Tipografia, espaço, raio e movimento do app React moram no @theme de
+   index.css.
+
+   Regras (detalhe em hope-saas/CLAUDE.md):
+   - UM acento: o teal da marca (#24A8B2).
+   - "No alvo" é teal, "atenção" é âmbar, "crítico" é vermelho.
+     Vermelho é para falha de sistema, nunca para desempenho de pessoa.
+   - O tema é sempre explícito em <html data-theme="light|dark">
+     (public/theme-init.js aplica antes do primeiro paint).
+   ==================================================================== */
+
+:root {
+  --teal-50: #ebf7f8;
+  --teal-100: #cdedef;
+  --teal-200: #9ddbdf;
+  --teal-300: #66c5cc;
+  --teal-400: #38b2bb;
+  --teal-500: #24a8b2; /* cor da marca (logohope.svg) */
+  --teal-600: #1b8e97;
+  --teal-700: #16767e; /* teal com contraste AA sobre fundo claro */
+  --teal-800: #155f66;
+  --teal-900: #134d53;
+  --teal-950: #0a3135;
+
+  --gray-0: #fbfcfc;
+  --gray-50: #f3f5f5;
+  --gray-100: #e8ecec;
+  --gray-200: #d7dddd;
+  --gray-300: #bcc4c5;
+  --gray-400: #949ea0;
+  --gray-500: #6c7679;
+  --gray-600: #535c5f;
+  --gray-700: #3d4548;
+  --gray-800: #262c2e;
+  --gray-850: #1c2123;
+  --gray-900: #151a1b;
+  --gray-950: #0e1213;
+
+  --amber-600: #a86b12;
+  --amber-400: #e2a33c;
+  --amber-100: #fbeed6;
+  --red-600: #bf3a35;
+  --red-400: #ec716b;
+  --red-100: #fadedc;
+}
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: var(--gray-50);
+  --surface: var(--gray-0);
+  --surface-sunk: var(--gray-100);
+  --surface-hover: #eef2f2;
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+
+  --text: #1d2325;
+  --text-2: var(--gray-600);
+  --text-3: var(--gray-500); /* 4.6:1 sobre --surface, mínimo para texto pequeno */
+  --text-inverse: var(--gray-0);
+
+  --accent: var(--teal-700);
+  --accent-strong: var(--teal-800);
+  --accent-fill: var(--teal-700);
+  --accent-fill-hover: var(--teal-800);
+  --accent-on-fill: var(--gray-0);
+  --accent-soft: var(--teal-50);
+  --accent-soft-2: var(--teal-100);
+  --accent-brand: var(--teal-500); /* só gráfico e marca, nunca texto pequeno */
+
+  --ok: var(--teal-700);
+  --ok-soft: var(--teal-50);
+  --warn: var(--amber-600);
+  --warn-soft: var(--amber-100);
+  --crit: var(--red-600);
+  --crit-soft: var(--red-100);
+
+  --focus-ring: 0 0 0 3px rgb(36 168 178 / 0.35);
+  --shadow-pop: 0 12px 32px -12px rgb(21 77 83 / 0.28), 0 2px 6px rgb(21 77 83 / 0.08);
+  --scrim: rgb(14 18 19 / 0.32);
+
+  --logo-mark: var(--teal-500);
+  --logo-word: #333333;
+
+  --chart-grid: var(--gray-100);
+  --chart-bar: var(--teal-500);
+  --chart-bar-muted: var(--teal-200);
+  --chart-line: var(--gray-700);
+  --chart-neutral: var(--gray-300);
+
+  --skel: var(--gray-100);
+  --skel-hi: var(--gray-50);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: var(--gray-950);
+  --surface: var(--gray-900);
+  --surface-sunk: #111516;
+  --surface-hover: var(--gray-850);
+  --border: var(--gray-800);
+  --border-strong: var(--gray-700);
+
+  --text: #e5ebec;
+  --text-2: #a7b1b3;
+  --text-3: #879295;
+  --text-inverse: var(--gray-950);
+
+  --accent: var(--teal-300);
+  --accent-strong: var(--teal-200);
+  --accent-fill: var(--teal-500);
+  --accent-fill-hover: var(--teal-400);
+  --accent-on-fill: var(--teal-950);
+  --accent-soft: rgb(36 168 178 / 0.12);
+  --accent-soft-2: rgb(36 168 178 / 0.22);
+  --accent-brand: var(--teal-500);
+
+  --ok: var(--teal-300);
+  --ok-soft: rgb(36 168 178 / 0.12);
+  --warn: var(--amber-400);
+  --warn-soft: rgb(226 163 60 / 0.13);
+  --crit: var(--red-400);
+  --crit-soft: rgb(236 113 107 / 0.13);
+
+  --focus-ring: 0 0 0 3px rgb(56 178 187 / 0.45);
+  --shadow-pop: 0 16px 40px -12px rgb(0 0 0 / 0.6), 0 2px 6px rgb(0 0 0 / 0.3);
+  --scrim: rgb(0 0 0 / 0.5);
+
+  --logo-mark: var(--teal-500);
+  --logo-word: #e5ebec;
+
+  --chart-grid: var(--gray-800);
+  --chart-bar: var(--teal-500);
+  --chart-bar-muted: var(--teal-900);
+  --chart-line: var(--gray-300);
+  --chart-neutral: var(--gray-600);
+
+  --skel: var(--gray-800);
+  --skel-hi: #2f3639;
+}
